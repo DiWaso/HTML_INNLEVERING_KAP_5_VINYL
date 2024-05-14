@@ -1,0 +1,74 @@
+body {
+    min-width: 900px;
+}
+
+#parent {
+    width: 80%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Div elementet som inneholder produktene er 3 ganger større enn div elementet som viser summen. */
+    gap: 10px;
+}
+
+.gridElement {
+    background: white;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.5);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+
+.hoved div {
+    display: flex;
+    flex-direction: column; /* Setter alt innholdet om produktene i en kolonne */
+}
+
+#produkter {
+    display: grid; /* Setter opp produktene i et grid format */ 
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* Det er plass til 3 forskjellige produkter i en rad før den må lage en ny rad */
+}
+
+#produkter div {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.5); /* En ramme rundt produktene */
+    padding: 10px; /* Padding på innsiden av div-en til produktene */
+    position: relative; /* Gjør det mulig å posisjonere kryssene som er i hvert produkt */
+}
+
+#summen {
+    height: 200px;
+}
+
+button {
+    border: none;
+}
+
+.fjernVare {
+    font-size: 20px;
+    background: none;
+    width: 40px;
+    aspect-ratio: 1;
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+.fjernVare:hover {
+    cursor: pointer;
+    background: #f0f0f0;
+}
+
+#fjernAlleVarer {
+    font-weight: bold;
+    box-sizing: border-box;                    
+    background: #000;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+}
+
+#fjernAlleVarer:active {
+    transform: translate(1px,1px); 
+}
