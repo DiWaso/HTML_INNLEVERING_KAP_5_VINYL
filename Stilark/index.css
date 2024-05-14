@@ -1,0 +1,153 @@
+body {
+    background-color: #f4f4f4;
+    font-family: 'Gill Sans MT', sans-serif;
+    min-width: 900px;
+}
+
+* {
+    box-sizing: border-box; /* Tar med rammen til elementene som en del av det hele elementet */
+    /* De 2 nederste fjerner all margin (luft på utsiden) og padding (luft på innsiden) som nettsiden legger til som default */
+    margin: 0;
+    padding: 0; 
+}
+
+.menybar { /* Hoved klassen til menyen ovenfor på alle sidene. Her legger vi til bakgrunnsfarge, rammen nedenfor, setter display: flex, og justify-content til space-between så at den første div-en ender opp helt til venstre av menybaren og den andre div-en ender opp helt til høyre av menybaren */
+    background-color: #fff;
+    border-bottom:  1px solid rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+}
+
+.menybar-logo { /* Her definerer jeg width-en til logoen, gir den en height, padding til venstre så den ikke klistrer seg helt til venstre, og setter den i display flex så den ender opp i rekke med alt annet og ikke ovenfor elementene */
+    width: fit-content;
+    height: 100%;
+    padding-left: 60px;
+    display: flex;
+}
+
+.menybar-logo img { /* Her definerer jeg høyden på selve logoen, aligner den helt til bunnen av diven den er i, og legger til litt luft under den så den ikke er klistret helt i borderen på bunnen */
+    height: 60px;
+    align-self: last baseline;
+    margin-bottom: 5px;
+}
+
+.menybar-nav ul { /* Her fjerner jeg liste-punktene til de to liste elementene ved siden av logoen (Hjem, Artister), og til listepunktene som brukes i menyen som kommer opp når musen din er over Artister */
+    list-style: none;
+}
+
+.menybar-nav ul li {
+    float: left; /* Setter liste punktene opp horisontalt */ 
+    position: relative; /* Dette gjør at listepunktene som kommer opp når musen din er over Artister står vertikalt og ikke horisontalt, og hvis du setter position til absoloute vil Artister overlappe Hjem */
+}
+
+.menybar-nav ul li a {
+    display: block; /* Gjør at hele arealet til elementet er interaktivt */ 
+    line-height: 80px; /* Setter plassering til Hjem og Artist elementene til 80px på y-aksen */
+    padding: 0px 14px; /* Legger til 14px luft innsiden men kun på venstre og høyre siden */
+    text-decoration: none; /* Fjerner streken som kommer med <a>-tagger */
+}
+
+.menybar-nav ul li ul {
+    display: none; /* Gjemme dropdown menyen */ 
+    position: absolute; /* Posisjonerer menyen relativt til li-elementet det ligger i */
+    background-color: white;
+    padding: 10px;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-top: none;
+    z-index: 1000; /* Gjør at dropdown menyen er alltid over alle andre div-er og elementer */
+}
+
+.menybar-nav ul li:hover ul{
+    display: block; /* Når musen din er over Artister liste punktet vil dropdown menyens display bli satt til block og vil da bli synlig fram til du tar musen din av den */
+}
+
+.menybar-nav ul li ul li {
+    width: 160px; /* Definerer width-en til hver og en Artist element */
+}
+
+.menybar-nav ul li ul li a {
+    padding: 12px 14px;
+    line-height: normal;
+}
+
+.menybar-nav ul li ul li a:hover {
+    background-color: #f3f3f3;
+}
+
+.menybar-handlekurv {
+    padding-right: 60px;
+    display: flex;
+    align-items:center;
+}
+
+.menybar-handlekurv a {
+    margin-bottom: -20px;
+}
+
+#menybar-handlekurv-funksjon {
+    width: 30px; /* Definerer width-en til handlekurv ikonet */
+    aspect-ratio: 1;
+    background-image: url(../Ikoner/bag.png); /* Importerer handlekurv ikonet */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 25%;
+}
+
+main * {
+    margin: 10px auto;
+}
+
+#overskrift {
+    width: 80%;
+    max-width: 1400px;
+    background-color: #fff;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.5);
+    color: #000;
+}
+
+.bestselgere-bilder {
+    width: 80%;
+    max-width: 1400px;
+    height: 400px;
+    display: grid;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: #fff;
+    grid-template-areas: "b1 b2 b3";
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px;
+}
+
+.bestselgere-bilder > a {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.bestselgere-bilder > a img {
+    width: 80%;
+}
+
+.bestselgere-bilder > a img {
+    transition: 0.4s ease; /* Sier at hva en handling som skjer nå skal skje i løpet av 0.4 sekunder i et rolig tempo */ 
+}
+
+.bestselgere-bilder > a:hover img {
+    transform: scale(1.2); /* Forstørrer bilde med 1.2x */
+}
+
+#bilde-1 { grid-area: b1; }
+#bilde-2 { grid-area: b2; }
+#bilde-3 { grid-area: b3; }
+
+a {
+    font-family: inherit;
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    cursor: pointer;
+    color: orange;
+}
